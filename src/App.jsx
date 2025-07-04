@@ -1,13 +1,22 @@
-import { useState } from 'react';
+
 import './App.css'
+import Home from './components/Home';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import AddTodo from './components/AddTodo';
+import NotFound from './components/NotFound';
+import Navbar from './components/NavBar';
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  
   return (
-    <div className="">
-        
-    </div>
+    <Router>
+      <Navbar/>
+      <Routes>
+          <Route path='/' element={<Home/>} />
+          <Route path="/add-todo" element={<AddTodo/>}/>
+          <Route path="*" element={<NotFound/>}/>
+      </Routes>
+    </Router>
   )
 }
 
